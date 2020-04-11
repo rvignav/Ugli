@@ -47,10 +47,9 @@ html {
 /* restaurant cards */
 .restaurant-card {
   box-sizing: border-box;
-  background-color: white;
   border-radius: 10px;
-  width: 100%;
 }
+
 
 
 /* media queries */
