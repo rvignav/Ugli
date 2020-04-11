@@ -1,0 +1,23 @@
+{
+  "name": "titanhacks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rvignav/TitanHacks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rvignav/TitanHacks/issues"
+  },
+  "homepage": "https://github.com/rvignav/TitanHacks#readme",
+  "dependencies": {
+    "buffer": "^5.5.0",
+    "fs": "0.0.1-security"
+  }
+}
