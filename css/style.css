@@ -5,16 +5,12 @@ html {
 }
 
 .bg {
-  margin-top: auto;
-  margin-bottom: auto;
-
   padding-top: 4em;
+  padding-bottom: 3em;
 
   /* The image used */
   background-image: url("../img/bg.jpg");
-
-  /* Full height */
-  height: 55%;
+  width: 100%;
 
   /* Center and scale the image nicely */
   background-attachment: fixed;
@@ -28,6 +24,7 @@ html {
 }
 
 .search {
+  background-color: white;
   border: none;
   border-radius: 25px;
   width: 100%;
@@ -35,8 +32,14 @@ html {
 }
 
 .search:hover,
-.search:active {
+.search:active,
+.search:focus {
+  background-color: white;
   border: none;
+}
+
+.restaurant-container {
+  margin-top: -3em;
 }
 
 #main-logo {
@@ -46,11 +49,21 @@ html {
 
 /* restaurant cards */
 .restaurant-card {
-  box-sizing: border-box;
-  border-radius: 10px;
+  background-color: white;
+  border-radius: 20px;
 }
 
+.restaurant-card .name {
+  color: var(--primary);
+  font-size: 2em;
+  font-weight: bold;
+}
 
+.restaurant-card .location {
+  color: var(--dark);
+  font-size: 1.5em;
+  line-height: 0.5;
+}
 
 /* media queries */
 
