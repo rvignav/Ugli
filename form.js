@@ -10,7 +10,8 @@ const addToFirebase = async (ref, obj) => {
     const email = $(`${section} #email`).val();
     const phone = $(`${section} #phone`).val();
     var image = document.getElementById("output");
-    var menu = "";
+    var menu = [];
+    var count = 0;
     const worker = Tesseract.createWorker({
         logger: m => console.log(m)
       });
@@ -23,48 +24,45 @@ const addToFirebase = async (ref, obj) => {
         while (text.indexOf("$") != -1) {
             text = text.replace("$", "");
         }
-        while (text.indexOf("0") != -1) {
-            text = text.replace("0", "");
+        while (text.indexOf("BREAKFAST") != -1) {
+            text = text.replace("BREAKFAST", "");
         }
-        while (text.indexOf("1") != -1) {
-            text = text.replace("1", "");
+        while (text.indexOf("LUNCH") != -1) {
+            text = text.replace("LUNCH", "");
         }
-        while (text.indexOf("2") != -1) {
-            text = text.replace("2", "");
+        while (text.indexOf("DINNER") != -1) {
+            text = text.replace("DINNER", "");
         }
-        while (text.indexOf("3") != -1) {
-            text = text.replace("3", "");
+        text = text.replace(/[0-9]/g, '');
+        text = text.replace(/^Lo(.*)$/mg, "")
+       
+        // var myre = /[\r\n]+/gi;
+        // text = text.replace(myre,"");
+
+        text = text.replace(/\n\s*\n/g, '\n');
+
+        // text = text.replace(/\s/g, '');
+
+        lines = text.split("\n");
+        console.log("Length: " + lines.length)
+        for (var i = 0; i < lines.length; i++) {
+            if (lines[i].replace(/\s/g, "").length != 0) {
+                menu[count] = lines[i];
+                count = count+1;
+            }
         }
-        while (text.indexOf("4") != -1) {
-            text = text.replace("4", "");
+        for (var i = 0; i < menu.length; i++) {
+            console.log(i + ". " + menu[i]);
         }
-        while (text.indexOf("5") != -1) {
-            text = text.replace("5", "");
-        }
-        while (text.indexOf("6") != -1) {
-            text = text.replace("6", "");
-        }
-        while (text.indexOf("7") != -1) {
-            text = text.replace("7", "");
-        }
-        while (text.indexOf("8") != -1) {
-            text = text.replace("8", "");
-        }
-        while (text.indexOf("9") != -1) {
-            text = text.replace("9", "");
-        }
-        console.log(text);
-        document.getElementById("text").innerText = text;
-        menu = text;
         await worker.terminate();
       })();
   
-    // await addToFirebase(refMarkers, { name, address, email, subject, message });
+    await addToFirebase(refMarkers, { name, address, email, city, state, phone, menu });
   };
   
   $('#formButton').click(async (e) => {
     e.preventDefault();
     console.log('IN SUBMIT');
     await submit('#input');
-    setTimeout(function(){ location.reload() }, 30000);
+    // setTimeout(function(){ location.reload() }, 30000);
 });
