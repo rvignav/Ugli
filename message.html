@@ -55,60 +55,75 @@
     </nav>
 
     <div class="container-fluid bg">
-      <div class="card text-white">
-        <div class="card-header">
-          <h1 id="title"></h1>
-        </div>
-        <div class="card-body"></div>
-      </div>
-      <h2>Personal Contact Info</h2>
+      <div class="container pb-5">
+        <div class="card text-white shadow-lg">
+          <div class="card-header">
+            <h1 id="title"></h1>
+          </div>
+          <div class="card-body">
+            <h2>Personal Contact Info</h2>
 
-      <section id="input2">
-        <div class="contact-form">
-          <form id="messageForm" method="post" role="form" class="contactForm">
-            <div class="col-md-6 col-md-offset-3">
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="name"
-                  id="name"
-                  placeholder="Name"
-                  data-rule-minlength="1"
-                  data-msg-minlength="Please enter your name"
-                />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="address"
-                  id="address"
-                  placeholder="Address (Street, City, State)"
-                  data-rule-minlength="3"
-                  data-msg-minlength="Please enter a valid address"
-                />
-                <div class="validation"></div>
+            <section id="input2">
+              <div class="contact-form">
+                <form
+                  id="messageForm"
+                  method="post"
+                  role="form"
+                  class="contactForm"
+                >
+                <div class="row">
+                <div class="col-3">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="name"
+                    placeholder="Name"
+                    data-rule-minlength="1"
+                    data-msg-minlength="Please enter your name"
+                  />
+                  <div class="validation"></div>
+                </div>
               </div>
 
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="phone"
-                  id="phone"
-                  placeholder="Phone Number"
-                  data-rule-number="true"
-                  data-msg-number="Please enter a valid phone number"
-                />
-                <div class="validation"></div>
+            <div class="col-6">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="address"
+                    id="address"
+                    placeholder="Address (Street, City, State)"
+                    data-rule-minlength="3"
+                    data-msg-minlength="Please enter a valid address"
+                  />
+                  <div class="validation"></div>
+                </div>
               </div>
+              
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="phone"
+                    id="phone"
+                    placeholder="Phone Number"
+                    data-rule-number="true"
+                    data-msg-number="Please enter a valid phone number"
+                  />
+                  <div class="validation"></div>
+                </div>
+              </div>
+            </div>
 
-              <h2>Ingredient List</h2>
+            <h2>Ingredient List</h2>
 
-              <h4>Ingredient 1</h4>
+            <h4>Ingredient 1</h4>
 
+            <div class="row">
+              <div class="col-3">
               <div class="form-group">
                 <input
                   type="text"
@@ -121,7 +136,9 @@
                 />
                 <div class="validation"></div>
               </div>
+            </div>
 
+            <div class="col-2">
               <div class="form-group">
                 <input
                   type="text"
@@ -134,7 +151,9 @@
                 />
                 <div class="validation"></div>
               </div>
+            </div>
 
+            <div class="col">
               <div class="form-group">
                 <input
                   type="text"
@@ -147,172 +166,150 @@
                 />
                 <div class="validation"></div>
               </div>
-
-              <form>
-                <input
-                  type="checkbox"
-                  id="i1Damaged"
-                  name="i1Damaged"
-                  value="Damaged"
-                />
-                <label for="vehicle1"> Damaged</label><br />
-                <input type="checkbox" id="i1Size" name="i1Size" value="Size" />
-                <label for="vehicle2"> Wrong Size</label><br />
-                <input
-                  type="checkbox"
-                  id="i1Cosmetics"
-                  name="i1Cosmetics"
-                  value="Cosmetics"
-                />
-                <label for="vehicle3"> Cosmetically Unsuitable</label>
-              </form>
-
-              <h4>Ingredient 2</h4>
-
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="i2name"
-                  id="i2name"
-                  placeholder="Ingredient Name"
-                  data-rule-minlength="1"
-                  data-msg-number="Please enter a valid ingredient name"
-                />
-                <div class="validation"></div>
-              </div>
-
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="i2quantity"
-                  id="i2quantity"
-                  placeholder="Quantity"
-                  data-rule-number="true"
-                  data-msg-number="Please enter a valid quantity"
-                />
-                <div class="validation"></div>
-              </div>
-
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="i2price"
-                  id="i2price"
-                  placeholder="Price Per Pound (Dollars)"
-                  data-rule-number="true"
-                  data-msg-number="Please enter a valid price"
-                />
-                <div class="validation"></div>
-              </div>
-
-              <form>
-                <input
-                  type="checkbox"
-                  id="i2Damaged"
-                  name="i2Damaged"
-                  value="Damaged"
-                />
-                <label for="vehicle1"> Damaged</label><br />
-                <input type="checkbox" id="i2Size" name="i2Size" value="Size" />
-                <label for="vehicle2"> Wrong Size</label><br />
-                <input
-                  type="checkbox"
-                  id="i2Cosmetics"
-                  name="i2Cosmetics"
-                  value="Cosmetics"
-                />
-                <label for="vehicle3"> Cosmetically Unsuitable</label>
-              </form>
-
-              <h4>Ingredient 3</h4>
-
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="i3name"
-                  id="i3name"
-                  placeholder="Ingredient Name"
-                  data-rule-minlength="1"
-                  data-msg-number="Please enter a valid ingredient name"
-                />
-                <div class="validation"></div>
-              </div>
-
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="i3quantity"
-                  id="i3quantity"
-                  placeholder="Quantity"
-                  data-rule-number="true"
-                  data-msg-number="Please enter a valid quantity"
-                />
-                <div class="validation"></div>
-              </div>
-
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="i3price"
-                  id="i3price"
-                  placeholder="Price Per Pound (Dollars)"
-                  data-rule-number="true"
-                  data-msg-number="Please enter a valid price"
-                />
-                <div class="validation"></div>
-              </div>
-
-              <form>
-                <input
-                  type="checkbox"
-                  id="i3Damaged"
-                  name="i3Damaged"
-                  value="Damaged"
-                />
-                <label for="vehicle1"> Damaged</label><br />
-                <input type="checkbox" id="i3Size" name="i3Size" value="Size" />
-                <label for="vehicle2"> Wrong Size</label><br />
-                <input
-                  type="checkbox"
-                  id="i3Cosmetics"
-                  name="i3Cosmetics"
-                  value="Cosmetics"
-                />
-                <label for="vehicle3"> Cosmetically Unsuitable</label>
-              </form>
-
-              <!-- data-rule-url=”true”
-                data-rule-date=”true”
-                data-rule-dateISO=”true”
-                data-rule-number=”true”
-                data-rule-digits=”true”
-                data-rule-creditcard=”true”
-                data-rule-minlength=”6”
-                data-rule-maxlength=”24”
-                data-rule-rangelength=”5,10”
-                data-rule-min=”5”
-                data-rule-max=”10”
-                data-rule-range=”5,10”
-                data-rule-equalto=”#password”
-                data-rule-remote=”custom-validatation-endpoint.aspx” -->
-
-              <button
-                id="formButton2"
-                type="button"
-                class="btn btn-primary btn-submit"
-              >
-                SUBMIT
-              </button>
             </div>
-          </form>
+          </div>
+
+        <div class="row check">
+          <div class="col-2"><input type="checkbox" name="i1amaged" id="i1Damaged" value="Damaged">
+            <label for="vehicle1"> Damaged</label>
+          </div>
+          <div class="col-2"><input type="checkbox" name="i1Size" id="i1Size" value="Size">
+            <label for="vehicle2"> Wrong Size</label>
+          </div>
+          <div class="col-2"><input type="checkbox" name="i1Cosmetics" id="i1Cosmetics" value="Cosmetics">
+            <label for="vehicle3"> Cosmetics</label>
+          </div>
         </div>
-      </section>
+
+          <h4>Ingredient 2</h4>
+            <div class="row">
+              <div class="col-3">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="i2name"
+                        id="i2name"
+                        placeholder="Ingredient Name"
+                        data-rule-minlength="1"
+                        data-msg-number="Please enter a valid ingredient name"
+                      />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+                    
+                    <div class="col-2">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="i2quantity"
+                        id="i2quantity"
+                        placeholder="Quantity"
+                        data-rule-number="true"
+                        data-msg-number="Please enter a valid quantity"
+                      />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                    <div class="col">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="i2price"
+                        id="i2price"
+                        placeholder="Price Per Pound (Dollars)"
+                        data-rule-number="true"
+                        data-msg-number="Please enter a valid price"
+                      />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                  </div>
+                  <div class="row check">
+                    <div class="col-2"><input type="checkbox" name="i2Damaged" id="i2Damaged" value="Damaged">
+                      <label for="vehicle1"> Damaged</label>
+                    </div>
+                    <div class="col-2"><input type="checkbox" name="i2Size" id="i2Size" value="Size">
+                      <label for="vehicle2"> Wrong Size</label>
+                    </div>
+                    <div class="col-2"><input type="checkbox" name="i2Cosmetics" id="i2Cosmetics" value="Cosmetics">
+                      <label for="vehicle3"> Cosmetics</label>
+                    </div>
+                  </div>
+
+                  <h4>Ingredient 3</h4>
+                  <div class="row">
+                    <div class="col-3">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="i3name"
+                        id="i3name"
+                        placeholder="Ingredient Name"
+                        data-rule-minlength="1"
+                        data-msg-number="Please enter a valid ingredient name"
+                      />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                    <div class="col-2">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="i3quantity"
+                        id="i3quantity"
+                        placeholder="Quantity"
+                        data-rule-number="true"
+                        data-msg-number="Please enter a valid quantity"
+                      />
+                      <div class="validation"></div>
+                    </div>
+                  </div>
+
+                    <div class="col">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="i3price"
+                        id="i3price"
+                        placeholder="Price Per Pound (Dollars)"
+                        data-rule-number="true"
+                        data-msg-number="Please enter a valid price"
+                      />
+                      <div class="validation"></div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <div class="row check">
+                      <div class="col-2"><input type="checkbox" name="i3Damaged" id="i3Damaged" value="Damaged">
+                        <label for="vehicle1"> Damaged</label>
+                      </div>
+                      <div class="col-2"><input type="checkbox" name="i3Size" id="i3Size" value="Size">
+                        <label for="vehicle2"> Wrong Size</label>
+                      </div>
+                      <div class="col-2"><input type="checkbox" name="i3Cosmetics" id="i3Cosmetics" value="Cosmetics">
+                        <label for="vehicle3"> Cosmetics</label>
+                      </div>
+                    </div>
+
+            <div class="row justify-content-center mt-3">
+              <div class="col text-center">
+                <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+              </div>
+              </div>
+                </form>
+        </div>
+      </div>
+    </div>
     </div>
     <!-- jquery -->
     <script
