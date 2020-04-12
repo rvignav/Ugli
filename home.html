@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 
     <link rel="stylesheet" href="css/style.css" />
+    
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+    <script src="firebase.js" type="text/javascript"></script>
 
     <title>Name</title>
   </head>
@@ -90,38 +95,9 @@
       </div>
     </div>
 
-    <div class="container restaurant-container">
+    <div class="container-fluid restaurant-container p-5">
       <div class="row grid justify-content-center" id="rest-grid">
-        <div class="restaurant-card" data-category="transition">
-          <h3 class="name">RestaurantName</h3>
-          <p class="location">95070</p>
-          <p class="ingredients">tomato, apple</p>
-        </div>
-        <div class="restaurant-card" data-category="transition">
-          <h3 class="name">Restaurant2Name</h3>
-          <p class="location">11111</p>
-          <p class="ingredients">celery, pumpkin</p>
-        </div>
-        <div class="restaurant-card" data-category="transition">
-          <h3 class="name">Restaurant3Name</h3>
-          <p class="location">92211</p>
-          <p class="ingredients">banana, pumpkin</p>
-        </div>
-        <div class="restaurant-card" data-category="transition">
-          <h3 class="name">Restaurant3Name</h3>
-          <p class="location">22261</p>
-          <p class="ingredients">banana, pumpkin</p>
-        </div>
-        <div class="restaurant-card" data-category="transition">
-          <h3 class="name">Restaurant3Name</h3>
-          <p class="location">27711</p>
-          <p class="ingredients">banana, pumpkin</p>
-        </div>
-        <div class="restaurant-card" data-category="transition">
-          <h3 class="name">Restaurant3Name</h3>
-          <p class="location">22211</p>
-          <p class="ingredients">jesus, pumpkin</p>
-        </div>
+        
       </div>
     </div>
 
@@ -141,6 +117,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    
     <!--isotope-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
     <!-- js -->

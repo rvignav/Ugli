@@ -70,8 +70,21 @@ body {
 
 .restaurant-card .location {
   color: var(--dark);
-  font-size: 1.4em;
+  font-size: 1.2em;
   line-height: 0.5;
+}
+
+.restaurant-card .ingredients {
+  font-size: 1em;
+  color: var(--secondary);
+}
+
+.restaurant-card .ingredients .hidden {
+  display: none;
+}
+
+.restaurant-card .ingredients .more {
+  font-weight: bold;
 }
 
 /* media queries */

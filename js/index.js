@@ -1,9 +1,38 @@
+function renderRestaurants() {
+  console.log("Rendering restaurants...");
+  db.collection("Restaurants")
+    .orderBy("city")
+    .onSnapshot((snapshot) => {
+      let changes = snapshot.docChanges();
+      changes.forEach((change) => {
+        if (change.type == "added") {
+          renderFireRestaurant(change.doc);
+        } else if (change.type == "removed") {
+          let card = $(`[data-id=${change.doc.id}]`);
+          document.getElementById("rest-grid").removeChild(card);
+        }
+      })
+    });
+}
+
+function renderFireRestaurant(doc) {
+  let data = doc.data().ingredients;
+  let ingredients = [];
+  Object.keys(data).forEach(function (key) {
+    ingredients.push(key);
+  });
+
+  renderToDOM(doc.data().name, doc.data().city, ingredients, doc.id);
+  console.log(`${doc.id} has been rendered.`);
+}
+
 // render single restaurant card to DOM
 // ingredients must be ARRAY of string ingredients
-var renderToDOM = (name, location, ingredients) => {
+function renderToDOM(name, location, ingredients, id) {
   // card element
   card = document.createElement("div");
-  card.classList += "restaurant-card";
+  card.classList +=
+    "restaurant-card col col-sm-6 col-md-4 col-lg-3 shadow card card-body";
   // add h3 for name
   nameH3 = document.createElement("h3");
   nameH3.classList += "name";
@@ -12,20 +41,21 @@ var renderToDOM = (name, location, ingredients) => {
   // location paragraph
   locationP = document.createElement("p");
   locationP.classList += "location";
-  locationP.textContent = location;
+  locationP.textContent = location.toLowerCase();
   card.appendChild(locationP);
   // ingredients paragraph
   ingredientsP = document.createElement("p");
   ingredientsP.classList += "ingredients";
-  if (ingredients.length >= 5) {
-    let text = document.createTextNode(
-      ingredients.slice(0, 4).join(", ") + " and many more..."
-    );
+  if (ingredients.length >= 15) {
+    let text = document.createTextNode(ingredients.slice(0, 14).join(", "));
+    let more = document.createElement("span");
+    more.textContent = " and many more...";
+    more.classList += "more";
     let restOfText = document.createElement("span");
-    restOfText.style.display = "none";
+    restOfText.classList += "hidden";
     restOfText.innerText = ingredients.slice(3);
-    console.log(restOfText);
     ingredientsP.appendChild(text);
+    ingredientsP.appendChild(more);
     ingredientsP.appendChild(restOfText);
   } else {
     ingredientsP.textContent = ingredients.join(", ");
@@ -33,26 +63,11 @@ var renderToDOM = (name, location, ingredients) => {
   card.appendChild(ingredientsP);
   grid = document.getElementById("rest-grid");
   grid.appendChild(card);
-  console.log(card);
-};
+}
 
-renderToDOM("Mountain Mike's Pizza", "Saratoga", [
-  "pepper",
-  "sugar",
-  "meat",
-  "sugar",
-  "meat",
-  "sugar",
-  "meat",
-  "jesus",
-  "dog",
-]);
+renderRestaurants();
 
-// get all restaurant cards and apply column classes
-$(".restaurant-card").addClass(
-  "col col-sm-6 col-md-4 col-lg-3 shadow card card-body"
-);
-
+console.log("Beginning filtering");
 // quick search regex
 var qsRegex;
 
