@@ -50,16 +50,20 @@
         for (var i = 0; i < menu.length; i++) {
           console.log(i + ". " + menu[i]);
         }
+        var dict = {};
+        for (var i = 0; i < menu.length; i++) {
+          dict[menu[i]] = 0;
+        }
         db.collection('Restaurants').add({
           name: name,
           address: address,
           // email: email,
           city: city,
           phone: phone,
-          ingredients: menu
+          ingredients: dict
         }).then(function() {
           console.log("DONE");
-          location.reload();
+          window.location.href="../home.html"
         });
       });
   };
