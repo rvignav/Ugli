@@ -7,18 +7,21 @@ app.get('/', (req, res) => {
     res.send("Hello world");
 });
 app.get('/home', (req, res) => {
-    res.send('home.html');
+    res.sendFile(path.join(__dirname + '/home.html'));
 });
 app.get('/upload', (req, res) => {
-    res.send('upload.html');
+    res.sendFile(path.join(__dirname + '/upload.html'));
 });
 
 app.get('/sendMessage', (req, res) => {
+    var msg = req.body.msg;
+    var receiver = req.body.receiver;
     client.messages.create({
-        to: '+16692514036',
+        to: receiver,
         from: '+12028663350',
-        body: 'Hello from Twilio!'
+        body: msg
     });
+    res.send("Success!");
 });
 
 app.listen(port, () => {
