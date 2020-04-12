@@ -32,7 +32,7 @@ const submit = async (section) => {
           ingredients: dict
         }).then(function() {
           console.log("DONE");
-          window.location.href="../home.html"
+          window.location.href="../home.html";
         });
   };
 
