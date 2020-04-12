@@ -16,6 +16,8 @@ function renderStore(doc){
   storeList.appendChild(li);
 
   console.log(doc.data().name);
+  console.log(doc.data().city);
+  console.log(doc.data().ingredients);
 }
 
 db.collection('Restaurants').get().then((snapshot) => {
