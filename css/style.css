@@ -64,13 +64,13 @@ body {
 
 .restaurant-card .name {
   color: var(--primary);
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
 .restaurant-card .location {
   color: var(--dark);
-  font-size: 1.5em;
+  font-size: 1.4em;
   line-height: 0.5;
 }
 
