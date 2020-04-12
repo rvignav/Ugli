@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 
     <link rel="stylesheet" href="css/style.css" />
-    
+
     <!-- firebase -->
     <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
@@ -49,7 +49,13 @@
             <a class="nav-link" href="upload.html">Restaurant Owners</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="upload.html" style="position: relative; left:615px;">Titan Hacks 2020 - Vignav Ramesh, Mason Wang, Howard Huang, Tony Jiang</a>
+            <a
+              class="nav-link"
+              href="home.html"
+              style="position: relative; left: 615px;"
+              >Titan Hacks 2020 - Vignav Ramesh, Mason Wang, Howard Huang, Tony
+              Jiang</a
+            >
           </li>
         </ul>
       </div>
@@ -83,16 +89,15 @@
 
         <div class="col-12"></div>
 
-          <div class="col-11 col-sm-6 col-md-4 col-lg-3 filter-container">
-            <div class="md-form active-purple-2 mb-3">
-              <input
-                class="form-control shadow-lg search"
-                type="text"
-                placeholder="Search by city name..."
-                aria-label="Search"
-                id="search-location"
-              />
-            </div>
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 filter-container">
+          <div class="md-form active-purple-2 mb-3">
+            <input
+              class="form-control shadow-lg search"
+              type="text"
+              placeholder="Search by city name..."
+              aria-label="Search"
+              id="search-location"
+            />
           </div>
         </div>
       </div>
@@ -101,6 +106,37 @@
     <div class="container-fluid restaurant-container p-5 d-block">
       <div class="row grid justify-content-center" id="rest-grid">
         <!-- cards go here -->
+      </div>
+    </div>
+
+    <!-- modal with all ingredients -->
+    <div class="modal" id="ingmodal">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">All Ingredients</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="" id="modify"></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -120,7 +156,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-  
+
     <!-- js -->
     <script src="js/index.js"></script>
   </body>

@@ -10,19 +10,26 @@ async function renderRestaurants() {
 }
 
 function renderFireRestaurant(doc) {
-  let data = doc.data().ingredients;
+  let data = doc.data();
+  let ing = data.ingredients;
   let ingredients = [];
-  Object.keys(data).forEach(function (key) {
-    ingredients.push(key);
+
+  // Create items array
+  ing = Object.keys(ing).map(function (key) {
+    return [key, ing[key]];
   });
-  if (!doc.data().name.toLowerCase().includes("test")) {
-    renderToDOM(
-      doc.data().name,
-      doc.data().city,
-      ingredients,
-      doc.id,
-      doc.data().phone
-    );
+
+  // Sort the array based on the second element
+  ing.sort(function (first, second) {
+    return second[1] - first[1];
+  });
+
+  for (let i = 0; i < ing.length; i++) {
+    ingredients.push(ing[i][0]);
+  }
+
+  if (!data.name.toLowerCase().includes("test")) {
+    renderToDOM(data.name, data.city, ingredients, doc.id, data.phone);
   }
 }
 
@@ -65,10 +72,17 @@ function renderToDOM(name, location, ingredients, id, phone) {
   }
   card.appendChild(ingredientsP);
   let button = document.createElement("button");
-  button.classList += "btn btn-outline-primary send";
+  button.classList += "btn btn-primary send mr-1";
   button.innerText = "Contact";
   button.setAttribute("onClick", `send("${phone}")`);
   card.appendChild(button);
+  viewButton = document.createElement("button");
+  viewButton.classList += "btn btn-outline-primary";
+  viewButton.setAttribute("data-toggle", "modal");
+  viewButton.setAttribute("data-target", "#ingmodal");
+  viewButton.innerText = "All Ingredients";
+  viewButton.setAttribute("onClick", `setModalTextTo("${ingredients.join(", ")}")`);
+  card.appendChild(viewButton);
   grid = document.getElementById("rest-grid");
   grid.appendChild(card);
 }
@@ -116,5 +130,11 @@ async function main() {
 function send(phone) {
   to = phone;
   console.log(to);
-  window.location.href="../message.html"
+  window.location.href = "../message.html";
+}
+
+function setModalTextTo(text) {
+  let modalText = document.getElementById('modify');
+  console.log(text);
+  modalText.textContent = text;
 }

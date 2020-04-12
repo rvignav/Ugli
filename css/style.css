@@ -28,6 +28,10 @@ body {
   background-size: cover;
 }
 
+#modify {
+  font-size: 0.9em;
+}
+
 .navbar-toggler {
   border: 0;
 }
@@ -50,6 +54,7 @@ body {
 
 .restaurant-container {
   margin-top: -9.5em;
+  margin-bottom: 5em;
 }
 
 #main-logo {
