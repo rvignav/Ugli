@@ -1,15 +1,13 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 4000;
 var path = require('path');
 var twilio = require('twilio');
-var client = new twilio('ACaa5c478e311fa2c18244bc22b15bc100', 'f672f731b6b97e880a652d1d6992c556');
+var client = new twilio('ACaa5c478e311fa2c18244bc22b15bc100', '2be03ef4a5110e7125df42b684012e14');
 var cors = require('cors');
-
-var corsOptions = {
-    origin: 'https://hack2020.netlify.com'
-};
-app.use(cors(corsOptions));
+app.use(bodyParser.json());
+app.use(cors());
 app.get('/', (req, res) => {
     res.send("Hello world");
 });
