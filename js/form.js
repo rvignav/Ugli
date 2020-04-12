@@ -55,18 +55,18 @@ const submit = async (section) => {
         while (text.indexOf("$") != -1) {
             text = text.replace("$", "");
         }
-        while (text.indexOf("CHEF’S TASTING MENU") != -1) {
-            text = text.replace("CHEF’S TASTING MENU", "");
+        while (text.indexOf("CHEF’S TASTING MENU\n") != -1) {
+            text = text.replace("CHEF’S TASTING MENU\n", "");
         }
-        while (text.indexOf("APPETIZERS") != -1) {
-            text = text.replace("APPETIZERS", "");
+        while (text.indexOf("APPETIZERS\n") != -1) {
+            text = text.replace("APPETIZERS\n", "");
         }
-        while (text.indexOf("ENTREES") != -1) {
-            text = text.replace("ENTREES", "");
+        while (text.indexOf("ENTREES\n") != -1) {
+            text = text.replace("ENTREES\n", "");
         }
-        while (text.indexOf("DESSERT") != -1) {
-          text = text.replace("DESSERT", "");
-      }
+      //   while (text.indexOf("DESSERT") != -1) {
+      //     text = text.replace("DESSERT", "");
+      // }
         text = text.replace(/[0-9]/g, '');
         // text = text.replace(/^Lo(.*)$/mg, "");
         text = text.replace(/\n\s*\n/g, '\n');
