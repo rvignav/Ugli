@@ -49,9 +49,7 @@ function renderToDOM(name, location, ingredients, id, phone) {
   locationP = document.createElement("p");
   locationP.classList += "location";
   location = location.toLowerCase().trim();
-  let firstLetter = location.substring(0, 1).toUpperCase();
-  location = firstLetter + location.slice(1);
-  locationP.textContent = location;
+  locationP.textContent = titleCase(location.trim());
   card.appendChild(locationP);
   // ingredients paragraph
   ingredientsP = document.createElement("p");
@@ -137,4 +135,15 @@ function setModalTextTo(text) {
   let modalText = document.getElementById('modify');
   console.log(text);
   modalText.textContent = text;
+}
+
+function titleCase(str) {
+  var splitStr = str.toLowerCase().split(' ');
+  for (var i = 0; i < splitStr.length; i++) {
+      // You do not need to check if i is larger than splitStr length, as your for does that for you
+      // Assign it back to the array
+      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+  }
+  // Directly return the joined string
+  return splitStr.join(' '); 
 }

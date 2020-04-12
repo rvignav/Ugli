@@ -14,8 +14,8 @@ body {
 }
 
 .bg {
-  padding-top: 4em;
-  padding-bottom: 6em;
+  padding-top: 7em;
+  padding-bottom: 8em;
 
   /* The image used */
   background-image: url("../img/bg.jpg");
