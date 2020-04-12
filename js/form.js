@@ -4,7 +4,7 @@ var contact = localStorage.getItem("phoneStorage");
 console.log(contact);
 var name = localStorage.getItem("vOneLocalStorage");
 console.log(name);
-document.getElementById("title").innerText = "Send a message to " + name + ".";
+document.getElementById("title").innerText = "Send a message to " + name;
 
 async function getIngredients(name) {
   var data = await fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + name, {
