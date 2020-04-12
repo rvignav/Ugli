@@ -23,6 +23,37 @@
       <script defer src="js/form.js" type="module"></script>
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/upload.css">
+      <script>
+        function go() {
+          console.log("in go");
+          const name = document.getElementById("name").value;
+    const address = document.getElementById("address").value;
+    // const email = $(`${section} #email`).val();
+    const phone = document.getElementById("phone").value;
+    const ing = document.getElementById("disp").value;
+    console.log(ing);
+        console.log(name);
+        console.log(address);
+        // console.log(email);
+        console.log(phone);
+        var ingredients = ing.split(", ");
+        var dict = {};
+        for (var i = 0; i < ingredients.length; i++) {
+          dict[ingredients[i]] = 0;
+        }
+        db.collection('Restaurants').add({
+          name: name,
+          address: address,
+          // email: email,
+          city: address.split(", ")[1],
+          phone: phone,
+          ingredients: dict
+        }).then(function() {
+          console.log("DONE");
+          window.location.href="../home.html";
+        });
+        }
+      </script>
     </head>
   <body>
     <nav
@@ -141,6 +172,7 @@
                 <button
               id="formButton"
               name="formButton"
+              onclick="go()"
               type="button"
               class="btn btn-primary btn-lg btn-submit"
               
