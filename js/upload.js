@@ -92,5 +92,7 @@ var loadFile = function (event) {
         disp.style.display = "block";
         disp.innerText = display;
         await worker.terminate();
-      })()
+      })().then(function() {
+        console.log("terminated");
+      });
   };
