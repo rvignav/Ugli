@@ -1,4 +1,5 @@
 const storeList = document.querySelector('#store-list');
+const form = document.querySelector('#add-cafe-form');
 
 // create element and render Restaurants
 function renderStore(doc){
@@ -20,8 +21,18 @@ function renderStore(doc){
   console.log(doc.data().ingredients);
 }
 
+// getting data
 db.collection('Restaurants').get().then((snapshot) => {
   snapshot.docs.forEach(doc => {
     renderStore(doc);
   })
 });
+
+// saving  data
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  db.collection('Restaurants').add({
+    name: form.name.value,
+    city: form.city.value
+  });
+})
