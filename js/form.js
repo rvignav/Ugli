@@ -17,7 +17,6 @@ const submit = async (section) => {
         console.log(name);
         console.log(address);
         // console.log(email);
-        console.log(city);
         console.log(phone);
         var ingredients = ing.split(", ");
         var dict = {};
@@ -28,7 +27,7 @@ const submit = async (section) => {
           name: name,
           address: address,
           // email: email,
-          city: city,
+          city: address.split(", ")[1],
           phone: phone,
           ingredients: dict
         }).then(function() {
