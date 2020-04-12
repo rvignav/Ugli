@@ -1,5 +1,4 @@
-
-  const submit = async (section) => {
+const submit = async (section) => {
     const name = $(`${section} #name`).val();
     const address = $(`${section} #address`).val();
     const city = $(`${section} #city`).val();
@@ -67,9 +66,22 @@
         });
       });
   };
+
+  const submit2 = async (section) => {
+    const name = $(`${section} #name`).val();
+    const address = $(`${section} #address`).val();
+    const city = $(`${section} #city`).val();
+    // TODO: SEND MESSAGE
+  };
   
   $('#formButton').click(async (e) => {
     e.preventDefault();
     console.log('IN SUBMIT');
     await submit('#input');
+});
+
+$('#formButton2').click(async (e) => {
+  e.preventDefault();
+  console.log('IN SUBMIT');
+  await submit2('#input2');
 });
