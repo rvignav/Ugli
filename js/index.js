@@ -21,8 +21,8 @@ function renderFireRestaurant(doc) {
   Object.keys(data).forEach(function (key) {
     ingredients.push(key);
   });
-
-  renderToDOM(doc.data().name, doc.data().city, ingredients, doc.id);
+  var city = doc.data().city.toLowerCase().trim();
+  renderToDOM(doc.data().name, city.charAt(0).toUpperCase() + city.slice(1), ingredients, doc.id);
   console.log(`${doc.id} has been rendered.`);
 }
 
@@ -41,7 +41,7 @@ function renderToDOM(name, location, ingredients, id) {
   // location paragraph
   locationP = document.createElement("p");
   locationP.classList += "location";
-  locationP.textContent = location.toLowerCase();
+  locationP.textContent = location;
   card.appendChild(locationP);
   // ingredients paragraph
   ingredientsP = document.createElement("p");
