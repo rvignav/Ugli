@@ -15,8 +15,9 @@ function renderFireRestaurant(doc) {
   Object.keys(data).forEach(function (key) {
     ingredients.push(key);
   });
-
-  renderToDOM(doc.data().name, doc.data().city, ingredients, doc.id);
+  if (!doc.data().name.toLowerCase().contains("test")) {
+    renderToDOM(doc.data().name, doc.data().city, ingredients, doc.id);
+  }
 }
 
 // render single restaurant card to DOM
