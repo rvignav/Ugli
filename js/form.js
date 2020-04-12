@@ -1,6 +1,10 @@
 import {sendMessage} from './send.js';
 
-const contact = "+15107371236";
+var contact = localStorage.getItem("phoneStorage");
+console.log(contact);
+var name = localStorage.getItem("vOneLocalStorage");
+console.log(name);
+document.getElementById("title").innerText = "Send a message to " + name + ".";
 
 async function getIngredients(name) {
   var data = await fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + name, {
@@ -30,7 +34,6 @@ async function getIngredients(name) {
   }
 }
 
-
 const submit = async (section) => {
     const name = $(`${section} #name`).val();
     const address = $(`${section} #address`).val();
@@ -52,17 +55,20 @@ const submit = async (section) => {
         while (text.indexOf("$") != -1) {
             text = text.replace("$", "");
         }
-        while (text.indexOf("BREAKFAST") != -1) {
-            text = text.replace("BREAKFAST", "");
+        while (text.indexOf("CHEF’S TASTING MENU\n") != -1) {
+            text = text.replace("CHEF’S TASTING MENU\n", "");
         }
-        while (text.indexOf("LUNCH") != -1) {
-            text = text.replace("LUNCH", "");
+        while (text.indexOf("APPETIZERS\n") != -1) {
+            text = text.replace("APPETIZERS\n", "");
         }
-        while (text.indexOf("DINNER") != -1) {
-            text = text.replace("DINNER", "");
+        while (text.indexOf("ENTREES\n") != -1) {
+            text = text.replace("ENTREES\n", "");
         }
+      //   while (text.indexOf("DESSERT") != -1) {
+      //     text = text.replace("DESSERT", "");
+      // }
         text = text.replace(/[0-9]/g, '');
-        text = text.replace(/^Lo(.*)$/mg, "");
+        // text = text.replace(/^Lo(.*)$/mg, "");
         text = text.replace(/\n\s*\n/g, '\n');
         lines = text.split("\n");
         console.log("Length: " + lines.length)
@@ -82,7 +88,7 @@ const submit = async (section) => {
         var ingredients = [];
         for (var i = 0; i < menu.length; i++) { 
           console.log(i + ". " + menu[i]);
-          var ing = getIngredients(menu[i]);
+          var ing = getIngredients(menu[i].split(" ")[0]);
           var l = ingredients.length;
           for (var j = 0; j < ing.length; j++) {
             ingredients[l+j] = ing[j];
