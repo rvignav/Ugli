@@ -3,7 +3,7 @@ export function sendMessage(to, msg) {
         receiver: to,
         msg: msg
     };
-    fetch("https://mysterious-cove-23804.herokuapp.com/sendMessage", {
+    fetch("https://cors-anywhere.herokuapp.com/"+"https://mysterious-cove-23804.herokuapp.com/sendMessage", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
