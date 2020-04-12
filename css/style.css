@@ -59,10 +59,7 @@ body {
 /* restaurant cards */
 .restaurant-card {
   background-color: white;
-  border-radius: 20px;
-}
-
-.restaurant-card.col {
+  margin: 0.2em;
 }
 
 .restaurant-card .name {

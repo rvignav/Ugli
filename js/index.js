@@ -26,7 +26,7 @@ function renderToDOM(name, location, ingredients, id) {
   // card element
   card = document.createElement("div");
   card.classList +=
-    "restaurant-card col col-sm-7 col-md-5 col-lg-3 shadow card card-body";
+    "restaurant-card col col-sm-10 col-md-5 col-lg-3 shadow-lg card card-body rounded";
   // add h3 for name
   nameH3 = document.createElement("h3");
   nameH3.classList += "name";
@@ -36,9 +36,8 @@ function renderToDOM(name, location, ingredients, id) {
   locationP = document.createElement("p");
   locationP.classList += "location";
   location = location.toLowerCase();
-  console.log((location.substring(0, 1)).toUpperCase());
   let firstLetter = location.substring(0, 1).toUpperCase();
-  location = firstLetter + (location.substring(1)).toLowerCase();
+  location = firstLetter + location.substring(1).toLowerCase();
   locationP.textContent = location;
   card.appendChild(locationP);
   // ingredients paragraph
