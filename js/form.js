@@ -56,6 +56,7 @@ const submit = async (section) => {
     const text = name + ' is a nearby farmer located at ' + address + ' and is willing to offer you the following foods:\n\n' + i1quantity + ' pounds of ' + i1name + ' at a price of $' + i1price + ' per pound\n\n' + i2quantity + ' pounds of ' + i2name + ' at a price of $' + i2price + ' per pound\n\n' + i3quantity + ' pounds of ' + i3name + ' at a price of $' + i3price + ' per pound\n\n' + 'Please contact ' + name + ' at ' + phone + ' to further discuss this offer and make a deal. Thanks!';
     console.log("here: " + contact);
     sendMessage(contact, text);
+    setTimeout(function() {window.location.href = "../home.html";}, 4000);
   };
   
   $('#formButton').click(async (e) => {
