@@ -1,0 +1,27 @@
+{
+  "name": "titanhacks",
+  "version": "1.0.0",
+  "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/d58d5b2e-64fe-4678-80f4-1fcacf294c96/deploy-status)](https://app.netlify.com/sites/hack2020/deploys)\r # TitanHacks",
+  "main": "firebase.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rvignav/TitanHacks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rvignav/TitanHacks/issues"
+  },
+  "homepage": "https://github.com/rvignav/TitanHacks#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "twilio": "^3.42.1"
+  }
+}
