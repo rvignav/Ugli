@@ -15,17 +15,24 @@ function renderFireRestaurant(doc) {
   Object.keys(data).forEach(function (key) {
     ingredients.push(key);
   });
-
-  renderToDOM(doc.data().name, doc.data().city, ingredients, doc.id);
+  if (!doc.data().name.toLowerCase().includes("test")) {
+    renderToDOM(
+      doc.data().name,
+      doc.data().city,
+      ingredients,
+      doc.id,
+      doc.data().phone
+    );
+  }
 }
 
 // render single restaurant card to DOM
 // ingredients must be ARRAY of string ingredients
-function renderToDOM(name, location, ingredients, id) {
+function renderToDOM(name, location, ingredients, id, phone) {
   // card element
   card = document.createElement("div");
   card.classList +=
-    "restaurant-card col col-sm-7 col-md-5 col-lg-3 shadow card card-body";
+    "restaurant-card col col-sm-10 col-md-5 col-lg-3 shadow-lg card card-body rounded";
   // add h3 for name
   nameH3 = document.createElement("h3");
   nameH3.classList += "name";
@@ -34,10 +41,9 @@ function renderToDOM(name, location, ingredients, id) {
   // location paragraph
   locationP = document.createElement("p");
   locationP.classList += "location";
-  location = location.toLowerCase();
-  console.log((location.substring(0, 1)).toUpperCase());
+  location = location.toLowerCase().trim();
   let firstLetter = location.substring(0, 1).toUpperCase();
-  location = firstLetter + (location.substring(1)).toLowerCase();
+  location = firstLetter + location.slice(1);
   locationP.textContent = location;
   card.appendChild(locationP);
   // ingredients paragraph
@@ -58,6 +64,11 @@ function renderToDOM(name, location, ingredients, id) {
     ingredientsP.textContent = ingredients.join(", ");
   }
   card.appendChild(ingredientsP);
+  let button = document.createElement("button");
+  button.classList += "btn btn-outline-primary send";
+  button.innerText = "Contact";
+  button.setAttribute("onClick", `send("${phone}")`);
+  card.appendChild(button);
   grid = document.getElementById("rest-grid");
   grid.appendChild(card);
 }
@@ -68,71 +79,42 @@ async function main() {
   // quick search regex
   var qsRegex;
 
-  // init Isotope
-  var $grid = $(".grid").isotope({
-    itemSelector: ".restaurant-card",
-    layoutMode: "fitRows",
-    filter: function () {
-      return qsRegex
-        ? $(this).find(".ingredients").text().match(qsRegex)
-        : true;
-    },
+  $("#search-ingredient").keyup(function () {
+    filterRestaurants();
   });
 
-  // use value of ingredient field to filter
-  var $quicksearch = $("#search-ingredient").keyup(
-    debounce(function () {
-      qsRegex = new RegExp($quicksearch.val(), "gi");
-      $grid.isotope({
-        filter: function () {
-          if (qsRegex) {
-            if (qsRegex2) {
-              return (
-                $(this).find(".location").text().match(qsRegex2) &&
-                $(this).find(".ingredients").text().match(qsRegex)
-              );
-            } else {
-              return $(this).find(".ingredients").text().match(qsRegex);
-            }
-          } else return true;
-        },
-      });
-    }, 200)
-  );
+  $("#search-location").keyup(function () {
+    filterRestaurants();
+  });
 
-  var qsRegex2;
-  // use value of location field to filter
-  var $quicksearch2 = $("#search-location").keyup(
-    debounce(function () {
-      qsRegex2 = new RegExp($quicksearch2.val(), "gi");
-      $grid.isotope({
-        filter: function () {
-          if (qsRegex2) {
-            if (qsRegex) {
-              return (
-                $(this).find(".location").text().match(qsRegex2) &&
-                $(this).find(".ingredients").text().match(qsRegex)
-              );
-            } else {
-              return $(this).find(".location").text().match(qsRegex2);
-            }
-          } else return true;
-        },
-      });
-    }, 200)
-  );
-}
-// debounce so filtering doesn't happen every millisecond
-function debounce(fn, threshold) {
-  var timeout;
-  threshold = threshold || 100;
-  return function debounced() {
-    clearTimeout(timeout);
-    var args = arguments;
-    var _this = this;
-    function delayed() {
-      fn.apply(_this, args);
+  function filterRestaurants() {
+    let ingMatch = $("#search-ingredient").val();
+    let cityMatch = $("#search-location").val();
+    ingMatch = ingMatch.toLowerCase();
+    cityMatch = cityMatch.toLowerCase();
+
+    let cards = document.getElementsByClassName("restaurant-card");
+    for (let i = 0; i < cards.length; i++) {
+      let card = cards[i];
+      if (ingMatch == "" && cityMatch == "") {
+        card.style.display = "none";
+        continue;
+      }
+
+      if (
+        card.children[2].textContent.toLowerCase().includes(ingMatch) &&
+        card.children[1].textContent.toLowerCase().includes(cityMatch)
+      ) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
     }
-    timeout = setTimeout(delayed, threshold);
-  };
+  }
+}
+
+function send(phone) {
+  to = phone;
+  console.log(to);
+  window.location.href="../message.html"
 }

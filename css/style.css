@@ -47,6 +47,7 @@ body {
   border: none;
 }
 
+
 .restaurant-container {
   margin-top: -9.5em;
 }
@@ -58,11 +59,9 @@ body {
 
 /* restaurant cards */
 .restaurant-card {
+  display: none;
   background-color: white;
-  border-radius: 20px;
-}
-
-.restaurant-card.col {
+  margin: 0.2em;
 }
 
 .restaurant-card .name {
