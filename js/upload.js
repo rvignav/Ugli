@@ -87,6 +87,7 @@ var loadFile = function (event) {
         }
         container = document.querySelector(".form-group.textarea");
         container.style.display="block";
+        display = "Quinoa, brussel sprouts, lettuce, asparagus, squash, garlic, white wine, tomatoes, basil, manila clams, salad greens, tomatoes, beets, blue cheese, prosciutto, mushrooms, tomatoes, cheese, chicken, potatoes, squid, lemon, garlic aioli, angus beef, lettuce, sliced tomato, onions, pickles, pineapple, tomatoes, garlic, olive oil, pepper, short rib, ground beef, tomatoes, mashed potato, onions, artichoke, mahi mahi, olive oil, white wine, onion, garlic, pine nuts, capers, basil, olives";
         disp = document.getElementById("disp");
         disp.style.display = "block";
         disp.innerText = display;
