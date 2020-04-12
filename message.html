@@ -18,6 +18,9 @@
   </head>
   <body>
     <h1>Send a message to a local restaurant.</h1>
+
+    <h2>Personal Contact Info</h2>
+
     <section id="input2">
       <div class="contact-form">
         <form id="messageForm" method="post" role="form" class="contactForm">
@@ -43,6 +46,34 @@
                 placeholder="Address (Street, City, State)"
                 data-rule-minlength="3"
                 data-msg-minlength="Please enter a valid address"
+              />
+              <div class="validation"></div>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="phone"
+                id="phone"
+                placeholder="Phone Number"
+                data-rule-number="1"
+                data-msg-number="Please enter your phone number"
+              />
+              <div class="validation"></div>
+            </div>
+
+            <h2>Ingredient List</h2>
+
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="i1name"
+                id="i1name"
+                placeholder="Ingredient Name"
+                data-rule-minlength="1"
+                data-msg-number="Please enter your Ingredient Name"
               />
               <div class="validation"></div>
             </div>
