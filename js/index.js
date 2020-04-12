@@ -16,7 +16,13 @@ function renderFireRestaurant(doc) {
     ingredients.push(key);
   });
   if (!doc.data().name.toLowerCase().includes("test")) {
-    renderToDOM(doc.data().name, doc.data().city, ingredients, doc.id, doc.data().phone);
+    renderToDOM(
+      doc.data().name,
+      doc.data().city,
+      ingredients,
+      doc.id,
+      doc.data().phone
+    );
   }
 }
 
@@ -84,14 +90,29 @@ async function main() {
   function filterRestaurants() {
     let ingMatch = $("#search-ingredient").val();
     let cityMatch = $("#search-location").val();
-    $(".restaurant-card").filter((index) => {
-      console.log($(this));
-    });
+    ingMatch = ingMatch.toLowerCase();
+    cityMatch = cityMatch.toLowerCase();
+
+    let cards = document.getElementsByClassName("restaurant-card");
+    for (let i = 0; i < cards.length; i++) {
+      let card = cards[i];
+      if (ingMatch == "" && cityMatch == "") {
+        card.style.display = "none";
+        continue;
+      }
+
+      if (
+        card.children[2].textContent.toLowerCase().includes(ingMatch) &&
+        card.children[1].textContent.toLowerCase().includes(cityMatch)
+      ) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    }
   }
 }
 
 function send(phone) {
-  console.log(phone);
   to = phone;
-  console.log(to);
 }
