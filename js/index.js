@@ -1,20 +1,3 @@
-// function renderRestaurants() {
-//   console.log("Rendering restaurants...");
-//   db.collection("Restaurants")
-//     .orderBy("city")
-//     .onSnapshot((snapshot) => {
-//       let changes = snapshot.docChanges();
-//       changes.forEach((change) => {
-//         if (change.type == "added") {
-//           renderFireRestaurant(change.doc);
-//         } else if (change.type == "removed") {
-//           let card = $(`[data-id=${change.doc.id}]`);
-//           document.getElementById("rest-grid").removeChild(card);
-//         }
-//       })
-//     });
-// }
-
 async function renderRestaurants() {
   await db
     .collection("Restaurants")
@@ -34,7 +17,6 @@ function renderFireRestaurant(doc) {
   });
 
   renderToDOM(doc.data().name, doc.data().city, ingredients, doc.id);
-  console.log(`${doc.id} has been rendered.`);
 }
 
 // render single restaurant card to DOM
@@ -52,7 +34,11 @@ function renderToDOM(name, location, ingredients, id) {
   // location paragraph
   locationP = document.createElement("p");
   locationP.classList += "location";
-  locationP.textContent = location.toLowerCase();
+  location = location.toLowerCase();
+  console.log((location.substring(0, 1)).toUpperCase());
+  let firstLetter = location.substring(0, 1).toUpperCase();
+  location = firstLetter + (location.substring(1)).toLowerCase();
+  locationP.textContent = location;
   card.appendChild(locationP);
   // ingredients paragraph
   ingredientsP = document.createElement("p");
@@ -79,7 +65,6 @@ main();
 async function main() {
   await renderRestaurants();
 
-  console.log("Beginning filtering");
   // quick search regex
   var qsRegex;
 
