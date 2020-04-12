@@ -1,16 +1,23 @@
 var express = require('express');
 const app = express();
 const port = process.env.PORT || 4000;
+var path = require('path');
 var twilio = require('twilio');
 var client = new twilio('ACaa5c478e311fa2c18244bc22b15bc100', 'f672f731b6b97e880a652d1d6992c556');
+var cors = require('cors');
+
+var corsOptions = {
+    origin: 'https://hack2020.netlify.com'
+};
+app.use(cors(corsOptions));
 app.get('/', (req, res) => {
     res.send("Hello world");
 });
 app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname + 'home.html'));
+    res.sendFile(path.join(__dirname + '/home.html'));
 });
 app.get('/upload', (req, res) => {
-    res.sendFile(path.join(__dirname + 'upload.html'));
+    res.sendFile(path.join(__dirname + '/upload.html'));
 });
 
 app.post('/sendMessage', (req, res) => {
