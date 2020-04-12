@@ -1,17 +1,28 @@
-function renderRestaurants() {
-  console.log("Rendering restaurants...");
-  db.collection("Restaurants")
-    .orderBy("city")
-    .onSnapshot((snapshot) => {
-      let changes = snapshot.docChanges();
-      changes.forEach((change) => {
-        if (change.type == "added") {
-          renderFireRestaurant(change.doc);
-        } else if (change.type == "removed") {
-          let card = $(`[data-id=${change.doc.id}]`);
-          document.getElementById("rest-grid").removeChild(card);
-        }
-      })
+// function renderRestaurants() {
+//   console.log("Rendering restaurants...");
+//   db.collection("Restaurants")
+//     .orderBy("city")
+//     .onSnapshot((snapshot) => {
+//       let changes = snapshot.docChanges();
+//       changes.forEach((change) => {
+//         if (change.type == "added") {
+//           renderFireRestaurant(change.doc);
+//         } else if (change.type == "removed") {
+//           let card = $(`[data-id=${change.doc.id}]`);
+//           document.getElementById("rest-grid").removeChild(card);
+//         }
+//       })
+//     });
+// }
+
+async function renderRestaurants() {
+  await db
+    .collection("Restaurants")
+    .get()
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        renderFireRestaurant(doc);
+      });
     });
 }
 
@@ -32,7 +43,7 @@ function renderToDOM(name, location, ingredients, id) {
   // card element
   card = document.createElement("div");
   card.classList +=
-    "restaurant-card col col-sm-6 col-md-4 col-lg-3 shadow card card-body";
+    "restaurant-card col col-sm-7 col-md-5 col-lg-3 shadow card card-body";
   // add h3 for name
   nameH3 = document.createElement("h3");
   nameH3.classList += "name";
@@ -65,64 +76,68 @@ function renderToDOM(name, location, ingredients, id) {
   grid.appendChild(card);
 }
 
-renderRestaurants();
+main();
+async function main() {
+  await renderRestaurants();
 
-console.log("Beginning filtering");
-// quick search regex
-var qsRegex;
+  console.log("Beginning filtering");
+  // quick search regex
+  var qsRegex;
 
-// init Isotope
-var $grid = $(".grid").isotope({
-  itemSelector: ".restaurant-card",
-  layoutMode: "fitRows",
-  filter: function () {
-    return qsRegex ? $(this).find(".ingredients").text().match(qsRegex) : true;
-  },
-});
+  // init Isotope
+  var $grid = $(".grid").isotope({
+    itemSelector: ".restaurant-card",
+    layoutMode: "fitRows",
+    filter: function () {
+      return qsRegex
+        ? $(this).find(".ingredients").text().match(qsRegex)
+        : true;
+    },
+  });
 
-// use value of ingredient field to filter
-var $quicksearch = $("#search-ingredient").keyup(
-  debounce(function () {
-    qsRegex = new RegExp($quicksearch.val(), "gi");
-    $grid.isotope({
-      filter: function () {
-        if (qsRegex) {
-          if (qsRegex2) {
-            return (
-              $(this).find(".location").text().match(qsRegex2) &&
-              $(this).find(".ingredients").text().match(qsRegex)
-            );
-          } else {
-            return $(this).find(".ingredients").text().match(qsRegex);
-          }
-        } else return true;
-      },
-    });
-  }, 200)
-);
-
-var qsRegex2;
-// use value of location field to filter
-var $quicksearch2 = $("#search-location").keyup(
-  debounce(function () {
-    qsRegex2 = new RegExp($quicksearch2.val(), "gi");
-    $grid.isotope({
-      filter: function () {
-        if (qsRegex2) {
+  // use value of ingredient field to filter
+  var $quicksearch = $("#search-ingredient").keyup(
+    debounce(function () {
+      qsRegex = new RegExp($quicksearch.val(), "gi");
+      $grid.isotope({
+        filter: function () {
           if (qsRegex) {
-            return (
-              $(this).find(".location").text().match(qsRegex2) &&
-              $(this).find(".ingredients").text().match(qsRegex)
-            );
-          } else {
-            return $(this).find(".location").text().match(qsRegex2);
-          }
-        } else return true;
-      },
-    });
-  }, 200)
-);
+            if (qsRegex2) {
+              return (
+                $(this).find(".location").text().match(qsRegex2) &&
+                $(this).find(".ingredients").text().match(qsRegex)
+              );
+            } else {
+              return $(this).find(".ingredients").text().match(qsRegex);
+            }
+          } else return true;
+        },
+      });
+    }, 200)
+  );
 
+  var qsRegex2;
+  // use value of location field to filter
+  var $quicksearch2 = $("#search-location").keyup(
+    debounce(function () {
+      qsRegex2 = new RegExp($quicksearch2.val(), "gi");
+      $grid.isotope({
+        filter: function () {
+          if (qsRegex2) {
+            if (qsRegex) {
+              return (
+                $(this).find(".location").text().match(qsRegex2) &&
+                $(this).find(".ingredients").text().match(qsRegex)
+              );
+            } else {
+              return $(this).find(".location").text().match(qsRegex2);
+            }
+          } else return true;
+        },
+      });
+    }, 200)
+  );
+}
 // debounce so filtering doesn't happen every millisecond
 function debounce(fn, threshold) {
   var timeout;
