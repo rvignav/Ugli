@@ -34,7 +34,6 @@ async function getIngredients(name) {
   }
 }
 
-
 const submit = async (section) => {
     const name = $(`${section} #name`).val();
     const address = $(`${section} #address`).val();
