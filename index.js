@@ -13,7 +13,7 @@ app.get('/upload', (req, res) => {
     res.sendFile(path.join(__dirname + '/upload.html'));
 });
 
-app.get('/sendMessage', (req, res) => {
+app.post('/sendMessage', (req, res) => {
     var msg = req.body.msg;
     var receiver = req.body.receiver;
     client.messages.create({
