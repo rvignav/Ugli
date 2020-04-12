@@ -115,4 +115,6 @@ async function main() {
 
 function send(phone) {
   to = phone;
+  console.log(to);
+  window.location.href="../message.html"
 }
