@@ -12,30 +12,41 @@ var renderToDOM = (name, location, ingredients) => {
   // location paragraph
   locationP = document.createElement("p");
   locationP.classList += "location";
-  // split based on commas, then get last word of the first element from split
-  let city = location
-    .split(",")[0]
-    .split(" ")
-    .reverse()[0]
-    .trim()
-    .toUpperCase();
-  locationP.textContent = city;
+  locationP.textContent = location;
   card.appendChild(locationP);
   // ingredients paragraph
   ingredientsP = document.createElement("p");
   ingredientsP.classList += "ingredients";
-  ingredientsP.textContent = ingredients.join(", ");
+  if (ingredients.length >= 5) {
+    let text = document.createTextNode(
+      ingredients.slice(0, 4).join(", ") + " and many more..."
+    );
+    let restOfText = document.createElement("span");
+    restOfText.style.display = "none";
+    restOfText.innerText = ingredients.slice(3);
+    console.log(restOfText);
+    ingredientsP.appendChild(text);
+    ingredientsP.appendChild(restOfText);
+  } else {
+    ingredientsP.textContent = ingredients.join(", ");
+  }
   card.appendChild(ingredientsP);
   grid = document.getElementById("rest-grid");
   grid.appendChild(card);
   console.log(card);
 };
 
-renderToDOM(
-  "Mountain Mike's Pizza",
-  "12850 Saratoga Sunnyvale Rd SARATOGA, CA 95070",
-  ["pepper", "sugar", "meat"]
-);
+renderToDOM("Mountain Mike's Pizza", "Saratoga", [
+  "pepper",
+  "sugar",
+  "meat",
+  "sugar",
+  "meat",
+  "sugar",
+  "meat",
+  "jesus",
+  "dog",
+]);
 
 // get all restaurant cards and apply column classes
 $(".restaurant-card").addClass(
