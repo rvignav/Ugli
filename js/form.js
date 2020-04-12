@@ -1,6 +1,6 @@
 import {sendMessage} from '../send.js';
 
-var to = "init";
+var to = "+15107371236";
 
 const submit = async (section) => {
     const name = $(`${section} #name`).val();
