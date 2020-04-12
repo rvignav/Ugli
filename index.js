@@ -7,10 +7,10 @@ app.get('/', (req, res) => {
     res.send("Hello world");
 });
 app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname + '/home.html'));
+    res.sendFile(path.join(__dirname + 'home.html'));
 });
 app.get('/upload', (req, res) => {
-    res.sendFile(path.join(__dirname + '/upload.html'));
+    res.sendFile(path.join(__dirname + 'upload.html'));
 });
 
 app.post('/sendMessage', (req, res) => {
