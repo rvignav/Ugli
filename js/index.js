@@ -16,13 +16,13 @@ function renderFireRestaurant(doc) {
     ingredients.push(key);
   });
   if (!doc.data().name.toLowerCase().includes("test")) {
-    renderToDOM(doc.data().name, doc.data().city, ingredients, doc.id);
+    renderToDOM(doc.data().name, doc.data().city, ingredients, doc.id, doc.data().phone);
   }
 }
 
 // render single restaurant card to DOM
 // ingredients must be ARRAY of string ingredients
-function renderToDOM(name, location, ingredients, id) {
+function renderToDOM(name, location, ingredients, id, phone) {
   // card element
   card = document.createElement("div");
   card.classList +=
@@ -35,9 +35,9 @@ function renderToDOM(name, location, ingredients, id) {
   // location paragraph
   locationP = document.createElement("p");
   locationP.classList += "location";
-  location = location.toLowerCase();
+  location = location.toLowerCase().trim();
   let firstLetter = location.substring(0, 1).toUpperCase();
-  location = firstLetter + location.substring(1).toLowerCase();
+  location = firstLetter + location.slice(1);
   locationP.textContent = location;
   card.appendChild(locationP);
   // ingredients paragraph
@@ -58,6 +58,11 @@ function renderToDOM(name, location, ingredients, id) {
     ingredientsP.textContent = ingredients.join(", ");
   }
   card.appendChild(ingredientsP);
+  let button = document.createElement("button");
+  button.classList += "btn btn-outline-primary send";
+  button.innerText = "Contact";
+  button.setAttribute("onClick", `send("${phone}")`);
+  card.appendChild(button);
   grid = document.getElementById("rest-grid");
   grid.appendChild(card);
 }
@@ -76,20 +81,17 @@ async function main() {
     filterRestaurants();
   });
 
-  let restCards = document.querySelectorAll(".restaurant-card");
   function filterRestaurants() {
-    // filter all by ingredient
-    for (let i = 0; i < restCards.length; i++) {
-      if (
-        restCard[i].children[2]
-          .text()
-          .includes($("#search-ingredient").val()) &&
-        restCard[i].children[1].text().includes($("#search-location").val())
-      ) {
-        restCard[i].style.display = "block";
-      } else {
-        restCard[i].style.display = "none";
-      }
-    }
+    let ingMatch = $("#search-ingredient").val();
+    let cityMatch = $("#search-location").val();
+    $(".restaurant-card").filter((index) => {
+      console.log($(this));
+    });
   }
+}
+
+function send(phone) {
+  console.log(phone);
+  to = phone;
+  console.log(to);
 }

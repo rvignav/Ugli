@@ -1,6 +1,6 @@
 import {sendMessage} from 'send.js';
 
-const to = "";
+var to = "";
 
 const submit = async (section) => {
     const name = $(`${section} #name`).val();
