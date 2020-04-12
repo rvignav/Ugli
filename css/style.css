@@ -26,6 +26,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
 }
 
 #modify {
@@ -50,7 +53,6 @@ body {
   background-color: white;
   border: none;
 }
-
 
 .restaurant-container {
   margin-top: -9.5em;
@@ -120,3 +122,5 @@ body {
 /* // Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 }
+
+/* divider */
