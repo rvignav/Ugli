@@ -85,10 +85,10 @@ var loadFile = function (event) {
         for (var i = 1; i < ingredients.length; i++) {
           display += ", " + ingredients[i];
         }
+        container = document.querySelector(".form-group.textarea");
+        container.style.display="block";
         disp = document.getElementById("disp");
         disp.style.display = "block";
-        disp.style.color = "black"; 
-        disp.classList += "form-control rounded";
         disp.innerText = display;
         await worker.terminate();
       })()

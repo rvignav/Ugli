@@ -57,7 +57,7 @@
 
     <div class="container-fluid bg">
       <div class="container">
-        <div class="card shadow-lg text-white bg-dark">
+        <div class="card shadow-lg text-white">
           <div class="card card-header">
             <h1>Don't see your restaurant? Add it below!</h1>
           </div>
@@ -121,9 +121,12 @@
                   <img id="output" width="200" height="auto" />
                   <script src="js/upload.js"></script>
                 </div>
-                <div class="form-group">
-                  <textarea id = "disp" name='disp' style="width: 500px; height: 250px; display: none;"></textarea>
+                <div class="row">
+                <div class="form-group col-12 textarea" style="display: none">
+                  <p id="desc">From the menu you uploaded, the following ingredients will be listed under your restaurant. Feel free to edit before submitting!</p>
+                  <textarea id = "disp" name='disp' class="form-control"></textarea>
                 </div>
+              </div>
                 <div class="row justify-content-center mt-5">
                 <button
               id="formButton"
