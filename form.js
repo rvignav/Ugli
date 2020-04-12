@@ -57,7 +57,7 @@ const addToFirebase = async (ref, obj) => {
         await worker.terminate();
       })();
   
-    await addToFirebase(refMarkers, { name, address, email, city, state, phone, menu });
+    // await addToFirebase(ADD FIRESTORE REFERENCE, { name, address, email, city, state, phone, menu });
   };
   
   $('#formButton').click(async (e) => {
