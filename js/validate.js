@@ -1,1 +1,2 @@
 $('#addForm').validate();
+$('#messageForm').validate();
