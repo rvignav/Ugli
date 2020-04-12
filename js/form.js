@@ -1,6 +1,6 @@
 import {sendMessage} from '../send.js';
 
-var to = "";
+var to = "+15107371236";
 
 const submit = async (section) => {
     const name = $(`${section} #name`).val();
@@ -88,7 +88,7 @@ const submit = async (section) => {
     const i3price = $(`${section} #i3price`).val();
     
     const text = name + ' is a nearby farmer located at ' + address + ' and is willing to offer you the following foods:\n\n' + i1quantity + ' pounds of ' + i1name + ' at a price of $' + i1price + ' per pound\n\n' + i2quantity + ' pounds of ' + i2name + ' at a price of $' + i2price + ' per pound\n\n' + i3quantity + ' pounds of ' + i3name + ' at a price of $' + i3price + ' per pound\n\n' + 'Please contact ' + name + ' at ' + phone + ' to further discuss this offer and make a deal. Thanks!';
-    console.log(to);
+    console.log("here: " + to);
     sendMessage(to, text);
   };
   
