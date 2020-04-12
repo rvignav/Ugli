@@ -72,7 +72,7 @@ function renderToDOM(name, location, ingredients, id, phone) {
   let button = document.createElement("button");
   button.classList += "btn btn-primary send mr-1";
   button.innerText = "Contact";
-  button.setAttribute("onClick", `send("${phone}")`);
+  button.setAttribute("onClick", `send("${phone}", "${name}")`);
   card.appendChild(button);
   viewButton = document.createElement("button");
   viewButton.classList += "btn btn-outline-primary";
@@ -125,10 +125,9 @@ async function main() {
   }
 }
 
-function send(phone) {
-  to = phone;
-  console.log(to);
-  console.log(phone);
+function send(phone, name) {
+  localStorage.setItem("vOneLocalStorage", name);  
+  localStorage.setItem("phoneStorage", phone);  
   window.location.href="../message.html";
 }
 
