@@ -1,6 +1,35 @@
-import {sendMessage} from '../send.js';
+import {sendMessage} from './send.js';
 
-var to = "+15107371236";
+const contact = "+15107371236";
+
+async function getIngredients(name) {
+  var data = await fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=" + name, {
+      method: 'GET',
+      headers: {
+          "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+          "x-rapidapi-key": "ecca05990bmsh826ddb1c8d1e3d3p15b3ccjsn9d5f14ee012e"
+      }
+  });
+  var json = await data.json();
+  var id = json.results[0].id;
+  if (id) {
+      var query = await fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information", {
+          method: 'GET',
+          headers: {
+              "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+              "x-rapidapi-key": "ecca05990bmsh826ddb1c8d1e3d3p15b3ccjsn9d5f14ee012e"
+          }
+      });
+      var ingredients = [];
+      const json1 = await query.json();
+      json1.extendedIngredients.forEach((i) => {
+          ingredients.push(i.name);
+      });
+      console.log(ingredients);
+      return ingredients;
+  }
+}
+
 
 const submit = async (section) => {
     const name = $(`${section} #name`).val();
@@ -50,12 +79,18 @@ const submit = async (section) => {
         // console.log(email);
         console.log(city);
         console.log(phone);
-        for (var i = 0; i < menu.length; i++) {
+        var ingredients = [];
+        for (var i = 0; i < menu.length; i++) { 
           console.log(i + ". " + menu[i]);
+          var ing = getIngredients(menu[i]);
+          var l = ingredients.length;
+          for (var j = 0; j < ing.length; j++) {
+            ingredients[l+j] = ing[j];
+          }
         }
         var dict = {};
-        for (var i = 0; i < menu.length; i++) {
-          dict[menu[i]] = 0;
+        for (var i = 0; i < ingredients.length; i++) {
+          dict[ingredients[i]] = 0;
         }
         db.collection('Restaurants').add({
           name: name,
@@ -88,8 +123,8 @@ const submit = async (section) => {
     const i3price = $(`${section} #i3price`).val();
     
     const text = name + ' is a nearby farmer located at ' + address + ' and is willing to offer you the following foods:\n\n' + i1quantity + ' pounds of ' + i1name + ' at a price of $' + i1price + ' per pound\n\n' + i2quantity + ' pounds of ' + i2name + ' at a price of $' + i2price + ' per pound\n\n' + i3quantity + ' pounds of ' + i3name + ' at a price of $' + i3price + ' per pound\n\n' + 'Please contact ' + name + ' at ' + phone + ' to further discuss this offer and make a deal. Thanks!';
-    console.log("here: " + to);
-    sendMessage(to, text);
+    console.log("here: " + contact);
+    sendMessage(contact, text);
   };
   
   $('#formButton').click(async (e) => {
