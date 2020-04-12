@@ -8,9 +8,8 @@ const firebaseConfig = {
     appId: "1:937261596231:web:d2160182de162710ee7b62"
 };
   const app = firebase.initializeApp(firebaseConfig);
-  const db = app.database();
+  const db = app.firestore();
+  db.settings({timestampsInSnapshots: true});
   const perf = firebase.performance();
   const analytics = firebase.analytics();
-  const refMarkers = db.ref('markers');
-  const refVolunteers = db.ref('volunteers');
   
