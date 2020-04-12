@@ -36,7 +36,7 @@
         console.log("Length: " + lines.length)
         for (var i = 0; i < lines.length; i++) {
             if (lines[i].replace(/\s/g, "").length != 0) {
-                menu[count] = lines[i];
+                menu[count] = lines[i].toLowerCase().trim();
                 count = count+1;
             }
         }
