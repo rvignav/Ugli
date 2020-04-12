@@ -94,4 +94,5 @@ function send(phone) {
   console.log(phone);
   to = phone;
   console.log(to);
+  window.location.href="../message.html"
 }
