@@ -1,12 +1,12 @@
 async function renderRestaurants() {
-  // await db
-  //   .collection("Restaurants")
-  //   .get()
-  //   .then((snapshot) => {
-  //     snapshot.forEach((doc) => {
-  //       renderFireRestaurant(doc);
-  //     });
-  //   });
+  await db
+    .collection("Restaurants")
+    .get()
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        renderFireRestaurant(doc);
+      });
+    });
 }
 
 function renderFireRestaurant(doc) {
@@ -15,7 +15,7 @@ function renderFireRestaurant(doc) {
   Object.keys(data).forEach(function (key) {
     ingredients.push(key);
   });
-  if (!doc.data().name.toLowerCase().contains("test")) {
+  if (!doc.data().name.toLowercase().contains("test")) {
     renderToDOM(doc.data().name, doc.data().city, ingredients, doc.id);
   }
 }
