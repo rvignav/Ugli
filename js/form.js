@@ -80,7 +80,6 @@ const submit = async (section) => {
   };
   
   $('#formButton').click(async (e) => {
-    console.log("CLICKED");
     e.preventDefault();
     console.log('IN SUBMIT');
     await submit('#input');
