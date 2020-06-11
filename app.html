@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="icon" type="image/png" href="img/ugli-logo.png" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+    <script src="firebase.js" type="text/javascript"></script>
+
+    <title>Ugli</title>
+  </head>
+  <body>
+    <nav
+      class="navbar shadow navbar-expand-lg navbar-dark bg-primary fixed-top"
+    >
+      <a class="navbar-brand" href="app.html"
+        ><img
+          src="img/ugli-logo.png"
+          class="img-fluid"
+          height="50px"
+          width="50px"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarColor01"
+        aria-controls="navbarColor01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="app.html">Farmers</a
+            ><span class="sr-only">(current)</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="upload.html">Restaurant Owners</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="demo.html">Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="slides.html">Slides</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pitch.html">Pitch</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid text-center bg">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-primary" id="main-logo">
+            <img src="img/main-logo.png" height="150px" />
+          </h1>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col">
+          <h2>
+            Did you know that the ugli fruit is also called the uniq fruit?
+          </h2>
+          <p>
+            With Ugli, ugly and misshapen produce no longer go to waste. Farmers
+            and restaurants connect to form mutually beneficial transactions.
+          </p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mb-4">
+        <div class="col-11 col-md-8 col-lg-6 filter-container">
+          <div class="md-form active-purple-2 mb-3">
+            <input
+              class="form-control shadow-lg search"
+              type="text"
+              placeholder="Search by ingredient..."
+              aria-label="Search"
+              id="search-ingredient"
+            />
+          </div>
+        </div>
+
+        <div class="col-12"></div>
+
+        <div class="col-11 col-sm-6 col-md-4 col-lg-3 filter-container">
+          <div class="md-form active-purple-2 mb-3">
+            <input
+              class="form-control shadow-lg search"
+              type="text"
+              placeholder="Search by city name..."
+              aria-label="Search"
+              id="search-location"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid restaurant-container p-5 d-block">
+      <div class="row grid justify-content-center" id="rest-grid">
+        <!-- cards go here -->
+      </div>
+    </div>
+
+    <!-- modal with all ingredients -->
+    <div class="modal" id="ingmodal">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">All Ingredients</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="lead">Sorted by frequency of orders:</p>
+            <p class="" id="modify"></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- js -->
+    <script src="js/index.js"></script>
+  </body>
+</html>
