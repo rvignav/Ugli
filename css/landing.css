@@ -2,7 +2,7 @@
 
 body {
   background-color: var(--light);
-  font-family: "Lato", "Source Sans Pro", sans-serif;
+  font-family: "Rockwell", "Source Sans Pro", sans-serif;
   color: var(--dark);
 }
 
@@ -25,7 +25,7 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 7em;
-  font-family: "Lato", "Source Sans Pro", sans-serif;
+  font-family: "Rockwell", "Source Sans Pro", sans-serif;
 }
 
 .hero .slogan {
