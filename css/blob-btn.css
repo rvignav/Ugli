@@ -54,8 +54,8 @@ body {
   top: 3px;
   width: 100%;
   height: 100%;
-  -webkit-transition: all 0.3s 0.2s;
-  transition: all 0.3s 0.2s;
+  -webkit-transition: all 0.5s 0.2s;
+  transition: all 0.5s 0.2s;
   border-radius: 30px;
 }
 .blob-btn:hover {
