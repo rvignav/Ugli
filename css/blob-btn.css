@@ -142,7 +142,11 @@ body {
 .blob-btn,
 .blob-btn:active,
 .blob-btn:hover,
-.blob-btn:focus {
+.blob-btn:focus,
+.blob-btn__inner,
+.blob-btn__inner:active,
+.blob-btn__inner:hover,
+.blob-btn__inner:focus {
   outline: none;
 }
 
