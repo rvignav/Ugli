@@ -7,7 +7,7 @@
 }
 
 body {
-  --btn-color: var(--primary);
+  --btn-color: #dfa700;
   --text-color: var(--dark);
   --background-color: var(--light);
   --button-padding: 20px;
@@ -144,4 +144,8 @@ body {
 .blob-btn:hover,
 .blob-btn:focus {
   outline: none;
+}
+
+.snow > .blob-btn__inner {
+  background-color: snow;
 }

@@ -8,6 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 
@@ -17,31 +18,141 @@
     <title>Ugli</title>
   </head>
   <body>
-    <div class="container hero">
+    <section class="container hero mt-3 mb-3 mt-lg-0 mb-lg-0 text-center">
       <div class="row">
-        <div class="col col-md-8">
+        <div class="col col-lg-8">
           <h1 id="title">Ugli</h1>
           <div class="row">
-            <div class="col-fit ml-3">
+            <div class="col">
               <h2 class="slogan">Turning ugly waste into abundant produce.</h2>
             </div>
           </div>
           <div class="mt-3">
-            <button class="blob-btn shadow">
-              For Farmers
-            </button>
-            <button class="blob-btn mt-2 shadow">
-              For Restaurants
-            </button>
+            <a href="home.html" class="text-dark">
+              <button class="blob-btn shadow">
+                For Farmers
+              </button>
+            </a>
+            <a href="upload.html" class="text-dark">
+              <button class="blob-btn mt-2 shadow">
+                For Restaurants
+              </button>
+            </a>
           </div>
         </div>
         <!--end hero content-->
-        <div class="col-4">
-          
+        <div class="col-lg-4 d-none d-lg-block">
+          <div class="row align-items-end mt-5 mt-xl-3 ml-2">
+            <img src="img/ugli.png" class="img-fluid" />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
+    <section class="container-fluid snow-bg">
+      <div class="container whatwedo">
+        <div class="row">
+          <div
+            class="col-12 col-md order-12 order-md-1"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <img
+              src="img/carrots.jpg"
+              alt="carrots"
+              class="img-fluid thumbnail"
+            />
+          </div>
+          <div
+            class="col text-center order-md-12"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <h1 class="section-heading">
+              <span class="underline--magical">What We Do</span>
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Laboriosam molestiae similique eaque? Fugiat amet deserunt
+              debitis. Officiis placeat perferendis!
+            </p>
+            <a href="#values" class="text-dark">
+              <button class="blob-btn snow shadow-sm mb-4 mb-md-0">
+                Get Started
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container values mb-3" id="values">
+      <div class="row text-center justify-content-center">
+        <div
+          class="col-12 col-md"
+          data-aos="fade-right"
+          data-aos-duration="2000"
+        >
+          <h1 class="section-heading">
+            <span class="underline--magical">Farmers</span>
+          </h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
+            provident recusandae quaerat a aperiam harum ea blanditiis nulla
+            itaque debitis quo esse et velit, dolorum ab, deleniti atque
+            accusantium officia.
+          </p>
+          <a href="home.html" class="text-dark">
+            <button class="blob-btn shadow-sm">
+              View Buyers
+            </button>
+          </a>
+          <div class="row justify-content-center mt-3">
+            <div class="col-12 col-md-8 col-lg-9">
+              <img
+                src="img/farmer.jpg"
+                alt="carrots"
+                class="img-fluid thumbnail"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 col-md mt-5 mt-md-0"
+          data-aos="fade-left"
+          data-aos-duration="2000"
+        >
+          <h1 class="section-heading">
+            <span class="underline--magical">Restaurants</span>
+          </h1>
+          <p>
+            Possimus numquam ex quod? Perspiciatis odio corporis quisquam
+            accusantium corrupti sit ipsa. Amet, officia nisi optio dolores
+            nesciunt quaerat libero. Explicabo veniam illo perferendis optio.
+          </p>
+          <a href="upload.html" class="text-dark">
+            <button class="blob-btn shadow-sm">
+              Connect Now
+            </button>
+          </a>
+          <div class="row justify-content-center mt-3">
+            <div class="col-12 col-md-8 col-lg-9">
+              <img
+                src="img/restaurant.jpg"
+                alt="carrots"
+                class="img-fluid thumbnail"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--aos-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true });
+    </script>
     <!--My javascript-->
     <script src="js/landing.js"></script>
     <!-- Optional JavaScript -->
