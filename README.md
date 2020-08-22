@@ -7,5 +7,5 @@ With Ugli, ugly and misshapen produce no longer go to waste. Farmers and restaur
   
 **Most Socially Impactful, 2nd Most Innovative, and 2nd Most Functional & Feasible @ Hack The Helyx 2020**
   
-**Top 5 Pitch @ Hack the Helyx 2020, Advanced to Round 2 of the SparkTeen Startup Accelerator Challenge**
+**Top 5 Pitch @ Hack the Helyx 2020, SparkTeen Startup Accelerator S20 Batch (Finalist out of 1000+ applicants from 25+ countries, interviewed by VCs from Y Combinator and Fine)**
   
