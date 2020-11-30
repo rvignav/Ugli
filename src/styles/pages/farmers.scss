@@ -1,0 +1,116 @@
+.farmers {
+  background: $body-bg;
+  .hero {
+    background: url("../../assets/img/farmers-hero-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    user-select: none;
+    color: white;
+    padding: 2.55em 0.5em;
+    padding-bottom: 9em;
+    h1 {
+      font-size: 4.2em;
+      font-weight: bold;
+    }
+    h2 {
+      color: #ddd;
+      font-size: 2.5em;
+    }
+    @include media("<=md") {
+      border-bottom-left-radius: 50% 13%;
+      border-bottom-right-radius: 50% 13%;
+      h1 {
+        font-size: 3.4em;
+      }
+      h2 {
+        font-size: 2em;
+      }
+    }
+
+    @include media("<=sm") {
+      border-bottom-left-radius: 50% 10%;
+      border-bottom-right-radius: 50% 10%;
+    }
+
+    .filter {
+      margin-top: 1.42em;
+      .filter-input {
+        border: 0;
+        max-width: 50vw;
+        margin: auto;
+        border-radius: 2.5em;
+        padding: 1.42em 1.25em;
+        &.ingredient {
+          margin-bottom: 0.69em;
+        }
+        &.city {
+          width: 24vw;
+        }
+        &:focus {
+          border: none;
+          outline: none;
+        }
+        @include media("<=lg") {
+          max-width: 80vw;
+          &.city {
+            width: 30vw;
+          }
+        }
+        @include media("<=sm") {
+          max-width: 85vw;
+          &.city {
+            width: 50vw;
+          }
+        }
+      }
+    }
+  }
+
+  .cards {
+    margin-top: -6.9em;
+    .card {
+      margin: 5px;
+      height: 100%;
+      border: 0;
+      border-radius: 0.42em;
+      transition: 0.55s ease;
+      h1 {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+      h2 {
+        font-size: 1.42em;
+        color: #444;
+        margin-bottom: 0.1em;
+      }
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      p {
+        margin: 0;
+        color: #666;
+      }
+      .buttons {
+        margin-top: 0.45em;
+        .contact {
+          border-radius: 0.2em;
+        }
+      }
+    }
+    .col-12 {
+      margin-bottom: 0.69em;
+    }
+  }
+}
