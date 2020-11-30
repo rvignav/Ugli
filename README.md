@@ -3,9 +3,10 @@
 # [Ugli](https://ugli.tech)
 With Ugli, ugly and misshapen produce no longer go to waste. Farmers and restaurants connect to form mutually beneficial transactions.
   
+**SparkTeen Startup Accelerator S'20 Batch (Top 8 out of 1000+ applicants from 25+ countries, interviewed by VCs from Y Combinator and Fine)**  
+
 **Best Sustainability Hack @ TitanHacks 2020**
   
 **Most Socially Impactful, 2nd Most Innovative, and 2nd Most Functional & Feasible @ Hack The Helyx 2020**
   
-**Top 5 Pitch @ Hack the Helyx 2020, SparkTeen Startup Accelerator S20 Batch (Finalist out of 1000+ applicants from 25+ countries, interviewed by VCs from Y Combinator and Fine)**
-  
+**Top 5 Pitch @ Hack the Helyx 2020**
