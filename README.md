@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d58d5b2e-64fe-4678-80f4-1fcacf294c96/deploy-status)](https://app.netlify.com/sites/ugli/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6bbfc747-dcf8-4c42-bdf7-664013e075c6/deploy-status)](https://app.netlify.com/sites/ugli/deploys)
 
 # [Ugli](https://ugli.tech)
 With Ugli, ugly and misshapen produce no longer go to waste. Farmers and restaurants connect to form mutually beneficial transactions.
