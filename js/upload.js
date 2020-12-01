@@ -67,7 +67,7 @@ var loadFile = function (event) {
           console.log("LINE: " + lines[i]);
             if (lines[i].replace(/\s/g, "").length != 0 && !lines[i].includes("CHEF")) {
                 menu[count] = lines[i].toLowerCase().trim();
-                count = count+1;
+                count = count + 1;
             }
         }
         var ingredients = [];
@@ -93,6 +93,6 @@ var loadFile = function (event) {
         disp.innerText = display;
         await worker.terminate();
       })().then(function() {
-        console.log("terminated");
+        console.log("Terminated");
       });
   };
