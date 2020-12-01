@@ -1,4 +1,6 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
 
 // production version reads from titanhacks2
 var firebaseConfig = {
@@ -21,6 +23,8 @@ var firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
+const auth = firebaseApp.auth();
+
 const db = firebaseApp.firestore();
 
-export { db };
+export { db, auth };

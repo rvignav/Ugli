@@ -52,11 +52,6 @@ export default function Header() {
                   Home <span className="sr-only">(current)</span>
                 </Link>
               </li>
-              <li className={"nav-item " + (path === "/about" && "active")}>
-                <Link className="nav-link" to="/about">
-                  About
-                </Link>
-              </li>
               <li className={"nav-item " + (path === "/farmers" && "active")}>
                 <Link className="nav-link" to="/farmers">
                   For Farmers
@@ -67,6 +62,13 @@ export default function Header() {
               >
                 <Link className="nav-link" to="/restaurants">
                   For Restaurants
+                </Link>
+              </li>
+              <li
+                className={"nav-item " + (path === "/delivery" && "active")}
+              >
+                <Link className="nav-link" to="/delivery">
+                  Deliver Produce
                 </Link>
               </li>
               <li className="nav-item dropdown">

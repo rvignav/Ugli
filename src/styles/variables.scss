@@ -1,6 +1,7 @@
 // theme
+$theme-vibrant: #ffaa00;
 $theme-bright: #fece4e;
-$theme: #ffb72c;
+$theme: #f7b430;
 $theme-darker: #fe9f1c;
 $theme-darkest: #e18602;
 $dark-brightest: #093d4b;
@@ -15,6 +16,9 @@ $navbar-bg-secondary: #00181f;
 $navbar-text: #eee;
 $navbar-text-secondary: #aaa;
 $navbar-accent: $theme-darker;
+
+// other
+$navbar-height: 64.4px;
 
 // browser-side
 $selection-color: $theme;

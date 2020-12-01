@@ -5,8 +5,8 @@ import Header from "./components/Header";
 
 // Page components
 import Home from "./pages/Home";
-import About from "./pages/About";
 import Farmers from "./pages/Farmers";
+import Delivery from "./pages/Delivery";
 import Restaurants from "./pages/Restaurants";
 
 // contexts
@@ -16,7 +16,6 @@ function App() {
   // routes
   const routes = [
     { path: "/", Component: <Home /> },
-    { path: "/about", Component: <About /> },
     {
       path: "/farmers",
       Component: (
@@ -26,6 +25,7 @@ function App() {
       ),
     },
     { path: "/restaurants", Component: <Restaurants /> },
+    { path: "/delivery", Component: <Delivery /> }
   ];
 
   return (

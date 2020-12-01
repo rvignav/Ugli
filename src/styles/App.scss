@@ -5,7 +5,6 @@
 
 // pages
 @import "./pages/home.scss";
-@import "./pages/about.scss";
 @import "./pages/farmers.scss";
 
 // components
@@ -25,7 +24,7 @@ body {
 }
 
 .page {
-  margin-top: 64px;
+  margin-top: $navbar-height;
 }
 
 // underline link
@@ -86,7 +85,18 @@ a.underline {
     &:hover {
       color: white;
       text-decoration: none;
-      background: $theme;
+      background: $theme-darkest;
     }
   }
+}
+
+.underline--magical {
+  background-image: linear-gradient(
+    120deg,
+    $theme-bright 0%,
+    darken($theme, 2.5%) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.25em;
+  background-position: 0 88%;
 }
